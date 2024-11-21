@@ -1,29 +1,26 @@
 <h1>Buscar Deputado</h1>
 <form [formGroup]="formBusca">
        <label for="nome" class="form-label">
-              Nome
+              Nome 
        </label>
-       <input class="form-control" type="text" 
-              name="nome" id="nome" formControlName="nome">
-       <input class="btn btn-info mt-3" type="button" value="Buscar" 
-              [disabled]="formBusca.invalid" (click)="buscar()">
+       <input class="form-control" type="text" name="nome" id="nome" formControlName="nome">
+       <input class="btn btn-info mt-3" type="button" value="Buscar" [disabled]="formBusca.invalid" (click)="buscar()">
 </form>
 
-<div *ngIf="deputado != undefined" 
-     class="card" 
-     style="width:15rem; height: auto;"
-     >
-     <img [src]="deputado.urlFoto" class="card-img-top" alt="Poster">
-       <div class="card-body">
-              <h5 class="card-title">{{deputado.nome}}</h5>
-              <ul class="card-text">
-              <li>ID: {{deputado.id}}</li>
-              <li>Nome: {{deputado.nome}}</li>
-              <li>Partido: {{deputado.siglaPartido}}</li>
-              <li>UF: {{deputado.siglaUf}}</li>
-              <li>ID Legislatura: {{deputado.idLegislatura}}</li>
-              <li>Email: {{deputado.email}}</li>
+<div *ngIf="deputado != undefined" class="card" style="width:15rem; height: auto;">
+       <tr *ngFor="let deputado of deputado">
+              <div class="card-body">
+                     <img [src]="deputado.urlFoto" class="card-img-top" alt="Poster">
+                     <h4 class="card-title">{{deputado.nome}}</h4>
+                     <ul class="card-text">
+                            <li>ID: {{deputado.id}}</li>
+                            <li>Nome: {{deputado.nome}}</li>
+                            <li>Partido: {{deputado.siglaPartido}}</li>
+                            <li>UF: {{deputado.siglaUf}}</li>
+                            <li>ID Legislatura: {{deputado.idLegislatura}}</li>
+                            <li>Email: {{deputado.email}}</li>
+                     </ul>
+              </div>
 
-              </ul>
-       </div>
+       </tr>
 </div>

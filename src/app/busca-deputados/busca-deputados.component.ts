@@ -26,7 +26,6 @@ export class BuscaDeputadosComponent {
     const nome = this.formBusca.value.nome
     this.fs.buscarDeputadoPorTitulo(nome).subscribe(
       res => {
-        console.log(res.dados)
         this.deputado = res.dados 
       }
     )
