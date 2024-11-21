@@ -13,7 +13,7 @@ export class DeputadoService {
   constructor(private http: HttpClient) {    
   }
 
-  buscarDeputadoPorTitulo(nome: string): Observable<any> {
+  buscarDeputadoPorNome(nome: string): Observable<any> {
     return this.http.get<any>(`${this.API}?nome=${nome}&ordem=ASC&ordenarPor=nome`)
   }
 }
